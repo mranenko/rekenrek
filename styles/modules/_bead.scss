@@ -1,0 +1,106 @@
+/**
+  Bead and bead string properties
+ */
+
+$bead: (
+  border: (
+    color: color(brown),
+    width: 4px,
+  ),
+
+  total: 10,
+  width: 5rem,
+  height: 5rem,
+
+  string: (
+    border: (
+      color: color(brown),
+      width: 4px,
+    ),
+
+    min-width: 50rem,
+    width: 100%,
+  ),
+);
+
+
+/**
+  Bead and bead string property accessor function
+ */
+
+@function bead($keys...) {
+  $value: $bead;
+
+  @each $key in $keys {
+    $value: map-get($value, $key);
+  }
+
+  @return $value;
+}
+
+
+/**
+  Bead styles
+ */
+
+.bead {
+  @include size(bead(width), bead(height));
+
+  border-radius: 50%;
+  border: bead(border, width) solid bead(border, color);
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  transition: left .5s;
+  z-index: 1;
+
+  &:hover,
+  &.hover {
+    border-color: color(blue);
+  }
+
+
+  /* bead color */
+  &[data-color='red'] { background: color(red); }
+  &[data-color='white'] { background: color(white); }
+
+
+  /* bead position */
+  @for $id from 1 through bead(total) {
+    &[data-order='#{$id}'] {
+      &[data-position='left'] {
+        left: calc(#{calc(#{$id} - 1)} * #{bead(width)});
+      }
+
+      &[data-position='right'] {
+        left: calc(#{bead(string, width)} - calc((#{bead(total)} - #{$id} + 1) * #{bead(width)}));
+      }
+    }
+  }
+}
+
+
+/**
+  Bead string styles
+ */
+
+.bead-string {
+  display: flex;
+  flex-direction: row;
+  font-size: 0;
+  height: bead(height);
+  margin: 3.2rem 0;
+  min-width: bead(width)*(bead(total) + 2);
+  position: relative;
+  width: bead(string, width);
+  z-index: 0;
+
+  &::before {
+    border-top: bead(string, border, width) solid bead(string, border, color);
+    content: '';
+    display: block;
+    position: absolute;
+    top: calc(#{bead(width)/2} - #{bead(string, border, width)/2});
+    width: bead(string, width);
+  }
+}

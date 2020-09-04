@@ -1,0 +1,7 @@
+@function contrast($color, $dark: color(brown), $light: color(beige)) {
+  @if (lightness($color) > 75) {
+    @return $dark;
+  } @else {
+    @return $light;
+  }
+}

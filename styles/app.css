@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;500&display=swap");
+/**
+	Reset html element styles
+ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: #f6f2ed;
+  color: #4f4747;
+  font-family: Source Sans Pro, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+body {
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 1.6rem;
+  line-height: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+  font-weight: 500;
+}
+
+h1, .title {
+  font-size: 4rem;
+}
+
+p {
+  margin: 0 0 1.6rem;
+}
+
+/**
+	Ensure footer always stays at the bottom
+ */
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  min-width: 68rem;
+}
+
+.footer,
+.header,
+.main {
+  flex-shrink: 0;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+/**
+	Footer, header, main
+ */
+.footer,
+.header,
+.main {
+  padding: 1.6rem 3.2rem;
+}
+
+.footer {
+  background: #4f4747;
+  color: #f6f2ed;
+}
+
+.header {
+  background: #ffffff;
+  color: #4f4747;
+}
+
+.main {
+  background: #f6f2ed;
+  color: #4f4747;
+}
+
+/**
+  Bead and bead string properties
+ */
+/**
+  Bead and bead string property accessor function
+ */
+/**
+  Bead styles
+ */
+.bead {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 4px solid #4f4747;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  transition: left 0.5s;
+  z-index: 1;
+  /* bead color */
+  /* bead position */
+}
+.bead:hover, .bead.hover {
+  border-color: #25bccc;
+}
+.bead[data-color=red] {
+  background: #b34459;
+}
+.bead[data-color=white] {
+  background: #ffffff;
+}
+.bead[data-order="1"][data-position=left] {
+  left: calc(calc(1 - 1) * 5rem);
+}
+.bead[data-order="1"][data-position=right] {
+  left: calc(100% - calc((10 - 1 + 1) * 5rem));
+}
+.bead[data-order="2"][data-position=left] {
+  left: calc(calc(2 - 1) * 5rem);
+}
+.bead[data-order="2"][data-position=right] {
+  left: calc(100% - calc((10 - 2 + 1) * 5rem));
+}
+.bead[data-order="3"][data-position=left] {
+  left: calc(calc(3 - 1) * 5rem);
+}
+.bead[data-order="3"][data-position=right] {
+  left: calc(100% - calc((10 - 3 + 1) * 5rem));
+}
+.bead[data-order="4"][data-position=left] {
+  left: calc(calc(4 - 1) * 5rem);
+}
+.bead[data-order="4"][data-position=right] {
+  left: calc(100% - calc((10 - 4 + 1) * 5rem));
+}
+.bead[data-order="5"][data-position=left] {
+  left: calc(calc(5 - 1) * 5rem);
+}
+.bead[data-order="5"][data-position=right] {
+  left: calc(100% - calc((10 - 5 + 1) * 5rem));
+}
+.bead[data-order="6"][data-position=left] {
+  left: calc(calc(6 - 1) * 5rem);
+}
+.bead[data-order="6"][data-position=right] {
+  left: calc(100% - calc((10 - 6 + 1) * 5rem));
+}
+.bead[data-order="7"][data-position=left] {
+  left: calc(calc(7 - 1) * 5rem);
+}
+.bead[data-order="7"][data-position=right] {
+  left: calc(100% - calc((10 - 7 + 1) * 5rem));
+}
+.bead[data-order="8"][data-position=left] {
+  left: calc(calc(8 - 1) * 5rem);
+}
+.bead[data-order="8"][data-position=right] {
+  left: calc(100% - calc((10 - 8 + 1) * 5rem));
+}
+.bead[data-order="9"][data-position=left] {
+  left: calc(calc(9 - 1) * 5rem);
+}
+.bead[data-order="9"][data-position=right] {
+  left: calc(100% - calc((10 - 9 + 1) * 5rem));
+}
+.bead[data-order="10"][data-position=left] {
+  left: calc(calc(10 - 1) * 5rem);
+}
+.bead[data-order="10"][data-position=right] {
+  left: calc(100% - calc((10 - 10 + 1) * 5rem));
+}
+
+/**
+  Bead string styles
+ */
+.bead-string {
+  display: flex;
+  flex-direction: row;
+  font-size: 0;
+  height: 5rem;
+  margin: 3.2rem 0;
+  min-width: 60rem;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+}
+.bead-string::before {
+  border-top: 4px solid #4f4747;
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(2.5rem - 2px);
+  width: 100%;
+}
+
+/*# sourceMappingURL=app.css.map */

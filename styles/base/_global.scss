@@ -1,0 +1,80 @@
+/**
+	Reset html element styles
+ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  @include contrast(color(beige));
+
+  font-family: font(family, source-sans-pro);
+  font-size: 10px;
+  font-weight: font(weight, normal);
+  line-height: 1.5;
+}
+
+body {
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 1.6rem;
+  line-height: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+  font-weight: font(weight, medium);
+}
+
+h1, .title {
+  font-size: 4rem;
+}
+
+p {
+  margin: 0 0 1.6rem;
+}
+
+
+/**
+	Ensure footer always stays at the bottom
+ */
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  min-width: 68rem;
+}
+
+.footer,
+.header,
+.main {
+  flex-shrink: 0;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+
+/**
+	Footer, header, main
+ */
+
+.footer,
+.header,
+.main {
+  padding: 1.6rem 3.2rem;
+}
+
+.footer { @include contrast(color(brown)); }
+.header { @include contrast(color(white)); }
+.main { @include contrast(color(beige)); }
