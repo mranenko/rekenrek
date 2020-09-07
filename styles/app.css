@@ -186,7 +186,8 @@ body {
   flex-direction: row;
   font-size: 0;
   height: 5rem;
-  margin: 3.2rem 0;
+  margin: 3.2rem auto;
+  max-width: 90rem;
   min-width: 60rem;
   position: relative;
   width: 100%;

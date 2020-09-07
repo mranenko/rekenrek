@@ -5,6 +5,7 @@
 $bead: (
   border: (
     color: color(brown),
+    color-hover: color(blue),
     width: 4px,
   ),
 
@@ -13,13 +14,8 @@ $bead: (
   height: 5rem,
 
   string: (
-    border: (
-      color: color(brown),
-      width: 4px,
-    ),
-
-    min-width: 50rem,
-    width: 100%,
+    color: color(brown),
+    width: 4px,
   ),
 );
 
@@ -56,7 +52,7 @@ $bead: (
 
   &:hover,
   &.hover {
-    border-color: color(blue);
+    border-color: bead(border, color-hover);
   }
 
 
@@ -73,7 +69,7 @@ $bead: (
       }
 
       &[data-position='right'] {
-        left: calc(#{bead(string, width)} - calc((#{bead(total)} - #{$id} + 1) * #{bead(width)}));
+        left: calc(100% - calc((#{bead(total)} - #{$id} + 1) * #{bead(width)}));
       }
     }
   }
@@ -89,18 +85,19 @@ $bead: (
   flex-direction: row;
   font-size: 0;
   height: bead(height);
-  margin: 3.2rem 0;
+  margin: 3.2rem auto;
+  max-width: 90rem;
   min-width: bead(width)*(bead(total) + 2);
   position: relative;
-  width: bead(string, width);
+  width: 100%;
   z-index: 0;
 
   &::before {
-    border-top: bead(string, border, width) solid bead(string, border, color);
+    border-top: bead(string, width) solid bead(string, color);
     content: '';
     display: block;
     position: absolute;
-    top: calc(#{bead(width)/2} - #{bead(string, border, width)/2});
-    width: bead(string, width);
+    top: calc(#{bead(width)/2} - #{bead(string, width)/2});
+    width: 100%;
   }
 }
